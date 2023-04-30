@@ -18,3 +18,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/backend') }}/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+  @stack('admin_style')

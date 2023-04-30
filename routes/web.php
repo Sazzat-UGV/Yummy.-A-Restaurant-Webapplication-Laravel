@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\backend\auth\loginController;
+use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\dashboardController;
+use App\Http\Controllers\frontend\homeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.layout.master');
-});
 
+Route::prefix('')->group(function(){
+    Route::get('/',[homeController::class,'home'])->name('home');
+});
 
 
 /*admin auth route*/
@@ -29,6 +31,9 @@ Route::prefix('admin/')->group(function(){
 
     Route::middleware(['auth','IsSystemAdmin'])->group(function(){
         Route::get('dashboard',[dashboardController::class,'dashboard'])->name('admin.dashboard');
+
+        /*Resource Controller*/
+        Route::resource('category',categoryController::class);
 
     });
 
