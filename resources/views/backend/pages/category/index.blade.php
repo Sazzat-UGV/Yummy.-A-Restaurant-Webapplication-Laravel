@@ -34,9 +34,9 @@ Category Index
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($categories as $index=>$category)
                     <tr>
-                        <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
+                        <th scope="row">{{ $index+1 }}</th>
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->title }}</td>
                         <td>{{ $category->slug }}</td>
@@ -50,10 +50,15 @@ Category Index
                               Setting
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#"><i
+                              <li><a class="dropdown-item" href="{{ route('category.edit',$category->slug) }}"><i
                                 class="fa-regular fa-pen-to-square"></i> Edit</a></li>
-                              <li><a class="dropdown-item" href="#"><i
-                                class="fa-solid fa-trash"></i> Delete</a></li>
+                              <li>
+                                <form action="{{ route('category.destroy',$category->slug) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item"><i
+                                        class="fa-solid fa-trash"></i> Delete</button>
+                                </form></li>
                             </ul>
                           </div></td>
                     </tr>
