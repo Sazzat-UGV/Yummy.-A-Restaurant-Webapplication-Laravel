@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class category extends Model
+class Product extends Model
 {
     use HasFactory,SoftDeletes;
 
     protected $guarded=['id'];
 
-    public function product(){
-        return $this->hasMany(Product::class,'category_id','id');
+    public function category(){
+        return $this->belongsTo(category::class,'category_id','id');
     }
 }
