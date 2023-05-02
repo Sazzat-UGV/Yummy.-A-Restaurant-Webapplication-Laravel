@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\chef;
 use App\Models\Event;
 use Illuminate\Database\Seeder;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             TestimonialSeeder::class,
             EventSeeder::class,
+            ChefSeeder::class,
         ]);
     }
 }

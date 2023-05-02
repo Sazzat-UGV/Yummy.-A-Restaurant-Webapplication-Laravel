@@ -15,6 +15,7 @@
   <link href="{{ asset('assets/backend') }}/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="{{ asset('assets/backend') }}/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="{{ asset('assets/backend') }}/vendor/simple-datatables/style.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/backend') }}/css/style.css" rel="stylesheet">
