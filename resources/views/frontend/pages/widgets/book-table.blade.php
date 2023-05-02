@@ -12,57 +12,72 @@
                 data-aos="zoom-out" data-aos-delay="200"></div>
 
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-                <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form"
+                <form action="{{ route('user.tableBook') }}" method="post" role="form" class="email-form"
                     data-aos="fade-up" data-aos-delay="100">
+                    @csrf
                     <div class="row gy-4">
                         <div class="col-lg-4 col-md-6">
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Your Name" data-rule="minlen:4"
-                                data-msg="Please enter at least 4 chars">
-                            <div class="validate"></div>
+                            <input type="text" name="name"  id="name"
+                                placeholder="Your Name" class="form-control @error('name')
+                                is-invalid
+                                @enderror">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Your Email" data-rule="email"
-                                data-msg="Please enter a valid email">
-                            <div class="validate"></div>
+                            <input type="email"  name="email" id="email"
+                                placeholder="Your Email" class="form-control @error('email')
+                                is-invalid
+                                @enderror">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <input type="text" class="form-control" name="phone" id="phone"
-                                placeholder="Your Phone" data-rule="minlen:4"
-                                data-msg="Please enter at least 4 chars">
-                            <div class="validate"></div>
+                            <input type="text"  name="phone" id="phone"
+                                placeholder="Your Phone" class="form-control @error('phone')
+                                is-invalid
+                                @enderror">
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <input type="text" name="date" class="form-control" id="date"
-                                placeholder="Date" data-rule="minlen:4"
-                                data-msg="Please enter at least 4 chars">
-                            <div class="validate"></div>
+                            <input type="date" name="date"  id="date"
+                            class="form-control @error('date')
+                            is-invalid
+                            @enderror">
+                            @error('date')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <input type="text" class="form-control" name="time" id="time"
-                                placeholder="Time" data-rule="minlen:4"
-                                data-msg="Please enter at least 4 chars">
-                            <div class="validate"></div>
+                            <input type="time" name="time"  class="form-control @error('time')
+                            is-invalid
+                            @enderror">
+                            @error('time')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <input type="number" class="form-control" name="people" id="people"
-                                placeholder="# of people" data-rule="minlen:1"
-                                data-msg="Please enter at least 1 chars">
-                            <div class="validate"></div>
+                            <input type="number" placeholder="# of people" name="no_of_people" min="1" class="form-control @error('no_of_people')
+                            is-invalid
+                            @enderror">
+                            @error('no_of_people')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                        <div class="validate"></div>
+                        <textarea  name="message" rows="5" placeholder="Message" class="form-control @error('message')
+                        is-invalid
+                        @enderror">
+                        @error('message')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror</textarea>
                     </div>
-                    <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your booking request was sent. We will call back or send an
-                            Email to confirm your reservation. Thank you!</div>
-                    </div>
-                    <div class="text-center"><button type="submit">Book a Table</button></div>
+                    <div class="text-center"><button class="mt-3" type="submit">Book a Table</button></div>
                 </form>
             </div><!-- End Reservation Form -->
 

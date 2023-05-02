@@ -15,3 +15,4 @@
 
 <!-- Template Main CSS File -->
 <link href="{{ asset('assets/frontend') }}/css/main.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">

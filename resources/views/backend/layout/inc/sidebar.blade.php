@@ -99,10 +99,19 @@
 
 
 
-
-
-
       <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('user.reservationIndex') }}">
+          <i class="bi bi-card-list"></i>
+          <span>Reservation</span>
+        </a>
+      </li>
+
+
+
+
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.html">
@@ -125,12 +134,7 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
+<!-- End Register Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
