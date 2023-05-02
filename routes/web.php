@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\auth\loginController;
 use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\dashboardController;
+use App\Http\Controllers\backend\eventController;
 use App\Http\Controllers\backend\productController;
 use App\Http\Controllers\backend\testimonialController;
 use App\Http\Controllers\frontend\homeController;
@@ -38,6 +39,7 @@ Route::prefix('admin/')->group(function(){
         Route::resource('category',categoryController::class);
         Route::resource('product',productController::class);
         Route::resource('testimonial',testimonialController::class);
+        Route::resource('event',eventController::class);
 
     });
 
