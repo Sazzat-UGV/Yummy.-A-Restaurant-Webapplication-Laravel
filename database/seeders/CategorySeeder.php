@@ -15,10 +15,9 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $main_categories=[
-            'Starters',
-            'Breakfast',
-            'Lunch',
             'Dinner',
+            'Lunch',
+            'Breakfast',
         ];
 
         foreach($main_categories as $values){
