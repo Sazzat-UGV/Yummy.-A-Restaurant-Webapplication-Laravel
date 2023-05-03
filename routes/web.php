@@ -8,6 +8,8 @@ use App\Http\Controllers\backend\eventController;
 use App\Http\Controllers\backend\galleryController;
 use App\Http\Controllers\backend\productController;
 use App\Http\Controllers\backend\testimonialController;
+use App\Http\Controllers\frontend\contact;
+use App\Http\Controllers\frontend\contactController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\frontend\tableBooking;
 use App\Http\Controllers\frontend\tableBookingController;
@@ -28,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('')->group(function(){
     Route::get('/',[homeController::class,'home'])->name('home');
     Route::post('book_table',[tableBookingController::class,'bookTable'])->name('user.tableBook');
+    Route::post('contact',[contactController::class,'contactCreate'])->name('user.contact');
 
 });
 
@@ -44,6 +47,8 @@ Route::prefix('admin/')->group(function(){
         Route::get('reservation',[tableBookingController::class,'showReservation'])->name('user.reservationIndex');
         Route::delete('reservation/{id}/',[tableBookingController::class,'deleteReservation'])->name('user.reservatdionDelete');
         Route::get('status/{id}/{status}',[tableBookingController::class,'changeStatus'])->name('user.reservatdionStatus');
+        Route::get('contact',[contactController::class,'contactIndex'])->name('user.contactIndex');
+        Route::delete('contact/{slug}',[contactController::class,'contactDelete'])->name('user.contactDelete');
 
         /*Resource Controller*/
         Route::resource('category',categoryController::class);

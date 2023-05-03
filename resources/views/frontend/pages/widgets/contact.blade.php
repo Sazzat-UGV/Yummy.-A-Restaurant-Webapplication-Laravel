@@ -58,28 +58,44 @@
 
         </div>
 
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+        <form action="{{ route('user.contact') }}" method="post"  class="email-form p-3 p-md-4">
+            @csrf
             <div class="row">
                 <div class="col-xl-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name"
-                        placeholder="Your Name" required>
+                    <input type="text" name="name"
+                        placeholder="Your Name" class="form-control @error('name')
+                        is-invalid
+                        @enderror">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                 </div>
                 <div class="col-xl-6 form-group">
-                    <input type="email" class="form-control" name="email" id="email"
-                        placeholder="Your Email" required>
+                    <input type="email"  name="email"
+                        placeholder="Your Email" class="form-control @error('email')
+                        is-invalid
+                        @enderror">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject"
-                    placeholder="Subject" required>
+                <input type="text"  name="subject"
+                    placeholder="Subject" class="form-control @error('subject')
+                    is-invalid
+                    @enderror">
+                    @error('subject')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <textarea name="message" rows="5" placeholder="Message" class="form-control @error('message')
+                is-invalid
+                @enderror">
+                @error('message')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror</textarea>
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
         </form>
