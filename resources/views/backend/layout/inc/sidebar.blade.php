@@ -95,6 +95,23 @@
           </li>
         </ul>
       </li><!-- End Icons Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#gallery-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-images"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="gallery-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route('gallery.index') }}">
+              <i class="bi bi-circle"></i><span>List</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('gallery.create') }}">
+              <i class="bi bi-circle"></i><span>Add New</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
 
 
 

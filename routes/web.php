@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\chefController;
 use App\Http\Controllers\backend\dashboardController;
 use App\Http\Controllers\backend\eventController;
+use App\Http\Controllers\backend\galleryController;
 use App\Http\Controllers\backend\productController;
 use App\Http\Controllers\backend\testimonialController;
 use App\Http\Controllers\frontend\homeController;
@@ -43,12 +44,14 @@ Route::prefix('admin/')->group(function(){
         Route::get('reservation',[tableBookingController::class,'showReservation'])->name('user.reservationIndex');
         Route::delete('reservation/{id}/',[tableBookingController::class,'deleteReservation'])->name('user.reservatdionDelete');
         Route::get('status/{id}/{status}',[tableBookingController::class,'changeStatus'])->name('user.reservatdionStatus');
+
         /*Resource Controller*/
         Route::resource('category',categoryController::class);
         Route::resource('product',productController::class);
         Route::resource('testimonial',testimonialController::class);
         Route::resource('event',eventController::class);
         Route::resource('chef',chefController::class);
+        Route::resource('gallery',galleryController::class);
 
     });
 
